@@ -41,8 +41,6 @@ This GitHub Action provides a reusable, configurable way to build and test Maven
 ## Notes
 - If you want to use a custom Maven version, specify it (e.g., `3.9.6`). Otherwise, the system Maven will be installed.
 - If `new-version` is not set, the Maven version will not be changed.
-- The action runs `mvn -B clean verify --file pom.xml` by default. If you set `skip-tests: 'true'`, it will run with `-DskipTests` to skip tests.
-
 ---
 
 Feel free to open issues or PRs for improvements!
