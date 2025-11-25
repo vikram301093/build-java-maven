@@ -22,7 +22,7 @@ This GitHub Action provides a reusable, configurable way to build and test Maven
 ## Inputs
 | Name               | Description                                         | Default     |
 |--------------------|-----------------------------------------------------|-------------|
-| `java-version`     | JDK version to use                                  | `'17'`      |
+| `java-version`     | JDK v[action.yaml](action.yaml)ersion to use                                  | `'17'`      |
 | `maven-version`    | Maven version to install (`default` = system)       | `'default'` |
 | `working-directory`| Directory containing the `pom.xml`                  | `'.'`       |
 | `new-version`      | Version to set with `mvn versions:set`              | `''`        |
@@ -30,7 +30,7 @@ This GitHub Action provides a reusable, configurable way to build and test Maven
 ## Example
 ```yaml
 - name: Install Java & Maven
-  uses: vikram301093/java-maven-action@v1.0.1
+  uses: vikram301093/java-maven-action@v1.0.0
   with:
     java-version: '21'
     maven-version: '3.9.6'
