@@ -10,8 +10,8 @@ This GitHub Action provides a reusable, configurable way to build and test Maven
 
 ## Usage
 ```yaml
-- name: Build and Test with Maven Action
-  uses: vanderlande-sandbox/maven-action@v1.0.1
+- name: Install Java & Maven
+  uses: vikram301093/java-maven-action@v1.0.0
   with:
     java-version: '17'                # Optional, default: '17'
     maven-version: 'default'          # Optional, default: 'default' (system package)
@@ -30,7 +30,7 @@ This GitHub Action provides a reusable, configurable way to build and test Maven
 ## Example
 ```yaml
 - name: Install Java & Maven
-  uses: vanderlande-sandbox/maven-action@v1.0.1
+  uses: vikram301093/java-maven-action@v1.0.1
   with:
     java-version: '21'
     maven-version: '3.9.6'

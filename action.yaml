@@ -1,5 +1,5 @@
-name: 'Maven Build and Test'
-description: 'Reusable Maven build and test composite action.'
+name: 'Install Java & Maven'
+description: 'Install Java & Maven composite action.'
 inputs:
   java-version:
     description: 'JDK version to use'
