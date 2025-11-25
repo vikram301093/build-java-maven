@@ -1,0 +1,41 @@
+name: 'Maven Build and Test'
+description: 'Reusable Maven build and test composite action.'
+inputs:
+  java-version:
+    description: 'JDK version to use'
+    required: false
+    default: '17'
+  maven-version:
+    description: 'Maven version to install'
+    required: false
+    default: 'default'
+  working-directory:
+    description: 'Directory containing the pom.xml'
+    required: false
+    default: '.'
+  new-version:
+    description: 'Version to set with mvn versions:set'
+    required: false
+    default: ''
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up JDK
+      uses: actions/setup-java@v4
+      with:
+        distribution: 'temurin'
+        java-version: ${{ inputs.java-version }}
+    - name: Install Maven
+      if: inputs.maven-version == 'default'
+      run: sudo apt-get update && sudo apt-get install -y maven
+      shell: bash
+    - name: Install Custom Maven Version
+      if: inputs.maven-version != 'default'
+      uses: s4u/setup-maven-action@v1.18.0
+      with:
+        maven-version: ${{ inputs.maven-version }}
+    - name: Set Maven version
+      if: inputs.new-version != ''
+      run: mvn versions:set -DnewVersion=${{ inputs.new-version }}
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
